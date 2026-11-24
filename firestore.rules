@@ -1,0 +1,133 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Default-Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Security Primitives & Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        (request.auth.token.email == "lofimusic492@gmail.com" && request.auth.token.email_verified == true)
+      );
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Entity Validation Blueprints
+    function isValidLandingPage(data) {
+      return data.keys().hasAll(['id', 'userId', 'slug', 'productName', 'description', 'price', 'ctaText', 'ctaLink', 'templateId', 'imageUrl', 'status']) &&
+        data.id is string && isValidId(data.id) &&
+        data.userId is string && isValidId(data.userId) &&
+        data.slug is string && data.slug.size() >= 2 && data.slug.size() <= 80 && data.slug.matches('^[a-z0-9-]+$') &&
+        data.productName is string && data.productName.size() >= 1 && data.productName.size() <= 120 &&
+        data.description is string && data.description.size() <= 4000 &&
+        data.price is number && data.price >= 0 &&
+        data.ctaText is string && data.ctaText.size() <= 60 &&
+        data.ctaLink is string && data.ctaLink.size() <= 500 &&
+        data.templateId is string && data.templateId.size() <= 50 &&
+        data.imageUrl is string && data.imageUrl.size() <= 5000000 &&
+        data.status in ['published', 'disabled'];
+    }
+
+    function isValidAdvertisement(data) {
+      return data.keys().hasAll(['id', 'title', 'placement', 'type', 'status']) &&
+        data.id is string && isValidId(data.id) &&
+        data.title is string && data.title.size() <= 120 &&
+        data.placement in ['below_product_image', 'footer', 'sticky_banner'] &&
+        data.type in ['banner', 'custom_html', 'script'] &&
+        data.status in ['active', 'inactive'];
+    }
+
+    // Admins Collection
+    match /admins/{adminId} {
+      allow read: if isSignedIn() && (request.auth.uid == adminId || isAdmin());
+      allow write: if isAdmin();
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isSignedIn() && request.auth.uid == userId &&
+        incoming().keys().hasAll(['id', 'email', 'name', 'role', 'status']) &&
+        incoming().id == userId &&
+        incoming().role == 'user' && // Prevent self-elevation to admin
+        incoming().status == 'active';
+      allow update: if (isOwner(userId) && incoming().diff(existing()).affectedKeys().hasOnly(['name', 'updatedAt'])) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Landing Pages Collection
+    match /landing_pages/{pageId} {
+      // Public can read published pages; Owners and Admins can read their pages
+      allow get: if resource.data.status == 'published' || (isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin()));
+      allow list: if (isSignedIn() && resource.data.userId == request.auth.uid) || isAdmin();
+      
+      // User creates page strictly under their own UID
+      allow create: if isSignedIn() && isValidId(pageId) && 
+        isValidLandingPage(incoming()) && 
+        incoming().userId == request.auth.uid &&
+        incoming().id == pageId;
+
+      // Update: Owner can update editable fields; Admin has full access
+      allow update: if isValidLandingPage(incoming()) && (
+        isAdmin() ||
+        (
+          isSignedIn() && 
+          resource.data.userId == request.auth.uid &&
+          incoming().userId == existing().userId &&
+          incoming().id == existing().id &&
+          incoming().diff(existing()).affectedKeys().hasOnly([
+            'productName', 'subtitle', 'description', 'price', 'originalPrice',
+            'discountPercentage', 'currency', 'ctaText', 'ctaLink', 'templateId',
+            'themeColor', 'imageUrl', 'features', 'testimonials', 'faqs',
+            'guaranteeText', 'urgentBannerText', 'status', 'viewCount', 'clickCount', 'updatedAt'
+          ])
+        )
+      );
+
+      allow delete: if (isSignedIn() && resource.data.userId == request.auth.uid) || isAdmin();
+    }
+
+    // Advertisements: CONTROLLED ONLY BY MAIN ADMIN
+    match /advertisements/{adId} {
+      allow get: if resource.data.status == 'active' || isAdmin();
+      allow list: if resource.data.status == 'active' || isAdmin();
+      allow write: if isAdmin() && isValidAdvertisement(incoming());
+      allow delete: if isAdmin();
+    }
+
+    // Templates Collection
+    match /templates/{templateId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Global Settings
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

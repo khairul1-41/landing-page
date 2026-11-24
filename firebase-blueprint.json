@@ -1,0 +1,128 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered user profile and role details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "status": { "type": "string", "enum": ["active", "suspended"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role", "status", "createdAt"]
+    },
+    "LandingPage": {
+      "title": "LandingPage",
+      "description": "Generated high-converting product landing page",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "maxLength": 80 },
+        "productName": { "type": "string", "maxLength": 120 },
+        "subtitle": { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 4000 },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "discountPercentage": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 5 },
+        "ctaText": { "type": "string", "maxLength": 60 },
+        "ctaLink": { "type": "string", "maxLength": 500 },
+        "templateId": { "type": "string" },
+        "themeColor": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "features": { "type": "array" },
+        "testimonials": { "type": "array" },
+        "faqs": { "type": "array" },
+        "guaranteeText": { "type": "string", "maxLength": 200 },
+        "urgentBannerText": { "type": "string", "maxLength": 150 },
+        "status": { "type": "string", "enum": ["published", "disabled"] },
+        "viewCount": { "type": "number" },
+        "clickCount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "slug", "productName", "description", "price", "ctaText", "ctaLink", "templateId", "imageUrl", "status"]
+    },
+    "Advertisement": {
+      "title": "Advertisement",
+      "description": "Main Admin managed advertisement placements",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 120 },
+        "placement": { "type": "string", "enum": ["below_product_image", "footer", "sticky_banner"] },
+        "type": { "type": "string", "enum": ["banner", "custom_html", "script"] },
+        "content": { "type": "string", "maxLength": 5000 },
+        "linkUrl": { "type": "string", "maxLength": 500 },
+        "imageUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "inactive"] },
+        "views": { "type": "number" },
+        "clicks": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "placement", "type", "status"]
+    },
+    "Template": {
+      "title": "Template",
+      "description": "Landing page presentation layout styles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 80 },
+        "slug": { "type": "string", "maxLength": 60 },
+        "description": { "type": "string", "maxLength": 300 },
+        "category": { "type": "string" },
+        "defaultTheme": { "type": "string" },
+        "badge": { "type": "string" },
+        "featuresList": { "type": "array" },
+        "isActive": { "type": "boolean" },
+        "isDefault": { "type": "boolean" }
+      },
+      "required": ["id", "name", "slug", "description", "category", "isActive"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Global website configuration controlled by Admin",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string", "maxLength": 100 },
+        "defaultSiteUrl": { "type": "string" },
+        "metaDescription": { "type": "string", "maxLength": 300 },
+        "supportEmail": { "type": "string", "format": "email" },
+        "adDisclosureNotice": { "type": "string", "maxLength": 500 },
+        "edgeOneCdnEnabled": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["siteName", "defaultSiteUrl", "metaDescription"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User accounts with roles and profile metadata"
+    },
+    "/landing_pages/{pageId}": {
+      "schema": "LandingPage",
+      "description": "Public and user-managed landing pages"
+    },
+    "/advertisements/{adId}": {
+      "schema": "Advertisement",
+      "description": "Platform advertisements controlled exclusively by Main Admin"
+    },
+    "/templates/{templateId}": {
+      "schema": "Template",
+      "description": "Preset landing page templates"
+    },
+    "/settings/global": {
+      "schema": "SiteSettings",
+      "description": "Platform global configuration and EdgeOne CDN parameters"
+    }
+  }
+}

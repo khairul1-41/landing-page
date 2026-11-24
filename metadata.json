@@ -1,0 +1,6 @@
+{
+  "name": "LaunchCraft - High-Converting Landing Page Generator",
+  "description": "Production-ready landing page generator with multi-template designs, main-admin advertisement engine, real-time analytics, and secure publishing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

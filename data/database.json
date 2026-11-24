@@ -1,0 +1,484 @@
+{
+  "users": [
+    {
+      "id": "user-admin-1",
+      "email": "lofimusic492@gmail.com",
+      "name": "Main Administrator",
+      "passwordHash": "a78b43c148cacac8fb9ee80bf6aa2ecdfaa1fc499489b9e47238a8b721a638d2",
+      "role": "admin",
+      "status": "active",
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-11-24T05:47:59.097Z",
+      "adminId": "MAIN-ADMIN",
+      "adminLevel": "main_admin",
+      "permissions": {
+        "manageAds": true,
+        "managePages": true,
+        "manageUsers": true,
+        "manageAdmins": true,
+        "manageACO": true,
+        "manageSettings": true
+      }
+    },
+    {
+      "id": "user-demo-1",
+      "email": "creator@launchcraft.dev",
+      "name": "Alex Rivera",
+      "passwordHash": "c0cefc95af1cf52bc807eb1e741611f65cfee29fa81c28cc92b4509d5517d99f",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    }
+  ],
+  "landingPages": [
+    {
+      "id": "page-lumina-1",
+      "userId": "user-admin-1",
+      "userEmail": "lofimusic492@gmail.com",
+      "slug": "lumina-pro-anc-headphones",
+      "productName": "Lumina Sound Pro ANC Wireless Headphones",
+      "subtitle": "Studio-Grade Acoustic Precision with 45-Hour Battery & Active Noise Cancellation",
+      "description": "Immerse yourself in rich, high-resolution audio. Engineered with custom 40mm beryllium drivers, active hybrid noise cancellation, and ultra-plush memory foam earcups designed for all-day comfort. Seamlessly pair with multiple devices and experience music exactly as the artist intended.",
+      "price": 199.99,
+      "originalPrice": 299.99,
+      "discountPercentage": 33,
+      "currency": "USD",
+      "ctaText": "Claim Your 33% Launch Discount",
+      "ctaLink": "https://checkout.stripe.com/pay/demo",
+      "templateId": "modern-sleek",
+      "themeColor": "#4f46e5",
+      "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "features": [
+        {
+          "id": "f1",
+          "title": "Hybrid Active Noise Cancellation",
+          "description": "Multi-microphone feedback loops cancel out up to 98% of ambient airplane and city noise.",
+          "iconName": "ShieldCheck"
+        },
+        {
+          "id": "f2",
+          "title": "45-Hour Ultra Battery Life",
+          "description": "Listen all week on a single charge. 10 minutes of USB-C fast charge delivers 5 hours of playback.",
+          "iconName": "BatteryCharging"
+        },
+        {
+          "id": "f3",
+          "title": "Custom 40mm Beryllium Drivers",
+          "description": "Delivers crystal-clear highs, velvety mids, and deep resonance without acoustic distortion.",
+          "iconName": "Sparkles"
+        },
+        {
+          "id": "f4",
+          "title": "Multipoint Bluetooth 5.4",
+          "description": "Effortlessly switch between your laptop conference call and phone playlist in milliseconds.",
+          "iconName": "Zap"
+        }
+      ],
+      "testimonials": [
+        {
+          "id": "t1",
+          "name": "Sarah Jenkins",
+          "role": "Audio Engineer & Producer",
+          "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+          "comment": "The soundstage on the Lumina Pro rivals my $600 studio reference monitors. ANC is silky smooth without ear pressure.",
+          "rating": 5
+        },
+        {
+          "id": "t2",
+          "name": "Marcus Chen",
+          "role": "Remote Software Lead",
+          "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+          "comment": "These saved my sanity in open-plan offices and cross-country flights. The battery simply never dies!",
+          "rating": 5
+        }
+      ],
+      "faqs": [
+        {
+          "id": "faq1",
+          "question": "What is included in the package?",
+          "answer": "Each box contains the Lumina Sound Pro ANC Headphones, hard protective travel case, USB-C fast charging cable, 3.5mm gold-plated audio cable, airline adapter, and quick-start warranty card."
+        },
+        {
+          "id": "faq2",
+          "question": "What is the return policy?",
+          "answer": "We offer a 30-day no-questions-asked money back guarantee. If you are not thrilled, we provide a prepaid return label for a 100% refund."
+        }
+      ],
+      "guaranteeText": "30-Day Money Back Guarantee • 2-Year Full Manufacturer Warranty • Free Global Shipping",
+      "urgentBannerText": "🔥 Flash Sale: Only 18 units remaining at this promotional price!",
+      "stockCount": 18,
+      "status": "published",
+      "viewCount": 1251,
+      "clickCount": 188,
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    },
+    {
+      "id": "page-fitness-2",
+      "userId": "user-demo-1",
+      "userEmail": "creator@launchcraft.dev",
+      "slug": "hyperpulse-smart-fitness-band",
+      "productName": "HyperPulse Titanium Smart Fitness Band",
+      "subtitle": "Military-Grade Biometric Health Tracking, 14-Day Battery & Real-Time Recovery Score",
+      "description": "Engineered for athletes and health pioneers. Continuous heart rate variability, SpO2 blood oxygen, sleep stage tracking, and titanium aerospace bezel that withstands water depths up to 50 meters.",
+      "price": 89,
+      "originalPrice": 149,
+      "discountPercentage": 40,
+      "currency": "USD",
+      "ctaText": "Get HyperPulse Now (Save $60)",
+      "ctaLink": "https://checkout.stripe.com/pay/hyperpulse",
+      "templateId": "flash-urgency",
+      "themeColor": "#e11d48",
+      "imageUrl": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?auto=format&fit=crop&w=1200&q=80",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "features": [
+        {
+          "id": "f1",
+          "title": "24/7 Heart & Stress Analytics",
+          "description": "Advanced PPG sensors continuously monitor cardiovascular rhythm and autonomic nervous system stress.",
+          "iconName": "Activity"
+        },
+        {
+          "id": "f2",
+          "title": "50M Waterproof Titanium Housing",
+          "description": "Built to survive marathon open-water swims, triathlon training, and heavy mountain trails.",
+          "iconName": "Droplet"
+        },
+        {
+          "id": "f3",
+          "title": "14-Day Real Life Battery",
+          "description": "Forget nightly charging docks. Get two full weeks of continuous analytics on a single fast charge.",
+          "iconName": "BatteryCharging"
+        }
+      ],
+      "testimonials": [
+        {
+          "id": "t1",
+          "name": "David Ortiz",
+          "role": "Triathlon Competitor",
+          "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+          "comment": "Replaced my expensive smartwatch with HyperPulse. The battery life is unbelievable and recovery metrics are laser accurate.",
+          "rating": 5
+        }
+      ],
+      "faqs": [
+        {
+          "id": "faq1",
+          "question": "Does it require a monthly app subscription?",
+          "answer": "No! Unlike competitors that lock health data behind $20/month paywalls, HyperPulse companion app is 100% free forever."
+        }
+      ],
+      "guaranteeText": "Risk-Free 60-Day Trial • Lifetime Free App Updates • Fast Track Delivery",
+      "urgentBannerText": "⚡ LIMITED QUANTITY: Price increases back to $149 in 24 hours!",
+      "stockCount": 7,
+      "status": "published",
+      "viewCount": 890,
+      "clickCount": 142,
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    },
+    {
+      "id": "page-serum-3",
+      "userId": "user-admin-1",
+      "userEmail": "lofimusic492@gmail.com",
+      "slug": "solis-glow-vitamin-serum",
+      "productName": "Solis Botanic Radiance Youth Elixir",
+      "subtitle": "Cold-Pressed Botanical Antioxidants & 15% Pure L-Ascorbic Acid for Luminous Skin",
+      "description": "Handcrafted in small artisanal batches with cold-pressed organic botanicals, ferulic acid, and pure vegan hyaluronic acid. Visibly brightens tone, reduces fine lines, and restores natural radiance in as little as 14 days.",
+      "price": 68,
+      "originalPrice": 95,
+      "discountPercentage": 28,
+      "currency": "USD",
+      "ctaText": "Experience The Glow - Order Today",
+      "ctaLink": "https://checkout.stripe.com/pay/solis-glow",
+      "templateId": "minimalist-luxury",
+      "themeColor": "#0f172a",
+      "imageUrl": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "features": [
+        {
+          "id": "f1",
+          "title": "15% Stabilized L-Ascorbic Acid",
+          "description": "Fights environmental oxidative stress while visibly evening pigmentation and dark spots.",
+          "iconName": "Sparkles"
+        },
+        {
+          "id": "f2",
+          "title": "Organic Botanical Infusion",
+          "description": "Infused with wild rosehip, Japanese camellia, and blue tansy extract.",
+          "iconName": "Heart"
+        }
+      ],
+      "testimonials": [
+        {
+          "id": "t1",
+          "name": "Elena Rostova",
+          "role": "Beauty Editor",
+          "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+          "comment": "My skin transformed within two weeks. The texture is silky, fast-absorbing, and gives an immediate healthy glass glow.",
+          "rating": 5
+        }
+      ],
+      "faqs": [
+        {
+          "id": "faq1",
+          "question": "Is it suitable for sensitive skin?",
+          "answer": "Yes! Solis is dermatologist-tested, fragrance-free, paraben-free, and formulated with soothing botanical calming agents."
+        }
+      ],
+      "guaranteeText": "100% Cruelty Free • Dermatologist Approved • 45-Day Radiant Skin Guarantee",
+      "urgentBannerText": "✨ Complimentary Luxury Silk Eye Mask included with each order today",
+      "stockCount": 22,
+      "status": "published",
+      "viewCount": 640,
+      "clickCount": 88,
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    }
+  ],
+  "advertisements": [
+    {
+      "id": "ad-prod-1",
+      "title": "Verified Merchant & Fast 2-Day Air Shipping Guarantee",
+      "placement": "below_product_image",
+      "type": "banner",
+      "content": "Shop with full confidence: 100% genuine products with buyer protection, free tracking, and express global delivery.",
+      "linkUrl": "https://launchcraft.app/guarantee",
+      "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      "sponsorName": "Global Logistics Network",
+      "badgeText": "Official Partner",
+      "status": "active",
+      "views": 424,
+      "clicks": 38,
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    },
+    {
+      "id": "ad-foot-1",
+      "title": "Exclusive 30-Day Risk-Free Trial with Free Return Label",
+      "placement": "footer",
+      "type": "banner",
+      "content": "Try it at home for a full month. If you are not completely delighted, return it for an instant 100% refund.",
+      "linkUrl": "https://launchcraft.app/trial",
+      "imageUrl": "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80",
+      "sponsorName": "Buyer Protection Trust",
+      "badgeText": "Sponsored Guarantee",
+      "status": "active",
+      "views": 314,
+      "clicks": 24,
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    },
+    {
+      "id": "ad-sticky-1",
+      "title": "Limited Seasonal Bonus: Free Premium Carrying Case ($49 Value) Included",
+      "placement": "sticky_banner",
+      "type": "banner",
+      "content": "Order today before midnight and receive an exclusive protective case with your shipment.",
+      "linkUrl": "https://launchcraft.app/bonus",
+      "sponsorName": "LaunchCraft Partner Network",
+      "badgeText": "Special Perk",
+      "status": "active",
+      "views": 184,
+      "clicks": 19,
+      "createdAt": "2026-10-06T15:46:43.439Z",
+      "updatedAt": "2026-10-06T15:46:43.439Z"
+    }
+  ],
+  "templates": [
+    {
+      "id": "modern-sleek",
+      "name": "Modern Sleek",
+      "slug": "modern-sleek",
+      "description": "Clean high-contrast minimalism with smooth hero gradients, crisp feature cards, and dynamic social proof.",
+      "category": "Universal E-Commerce",
+      "defaultTheme": "#4f46e5",
+      "badge": "Popular",
+      "featuresList": [
+        "Hero Split Showcase",
+        "Interactive Specs",
+        "Customer Reviews Carousel",
+        "Sticky CTA Bar"
+      ],
+      "isActive": true,
+      "isDefault": true,
+      "layoutStyle": "modern"
+    },
+    {
+      "id": "flash-urgency",
+      "name": "High-Converting Urgency",
+      "slug": "flash-urgency",
+      "description": "Engineered for direct-response sales with live countdown timer, stock meter, and urgency discount banners.",
+      "category": "Direct Response / Flash Sales",
+      "defaultTheme": "#e11d48",
+      "badge": "High Conversion",
+      "featuresList": [
+        "Countdown Urgency Timer",
+        "Stock Scarcity Meter",
+        "Money-Back Guarantee Seals",
+        "Pulsing Checkout CTA"
+      ],
+      "isActive": true,
+      "isDefault": false,
+      "layoutStyle": "urgency"
+    },
+    {
+      "id": "minimalist-luxury",
+      "name": "Minimalist Luxury",
+      "slug": "minimalist-luxury",
+      "description": "Serif editorial typography, warm earth tones, spacious gallery layout designed for premium flagship items.",
+      "category": "Luxury & Lifestyle",
+      "defaultTheme": "#0f172a",
+      "badge": "Editorial",
+      "featuresList": [
+        "Editorial Typography",
+        "Full-Bleed Gallery",
+        "Artisan Brand Story",
+        "Concierge Trust Badges"
+      ],
+      "isActive": true,
+      "isDefault": false,
+      "layoutStyle": "luxury"
+    },
+    {
+      "id": "tech-neon",
+      "name": "Tech Cyber Dark",
+      "slug": "tech-neon",
+      "description": "Deep obsidian theme with glowing cyan accents, hardware specification grid, and futuristic aesthetic.",
+      "category": "Hardware & Tech Gadgets",
+      "defaultTheme": "#06b6d4",
+      "badge": "Dark Mode",
+      "featuresList": [
+        "Cyberpunk Glass Cards",
+        "Technical Spec Table",
+        "Benchmark Comparison",
+        "Glow Accents"
+      ],
+      "isActive": true,
+      "isDefault": false,
+      "layoutStyle": "dark"
+    },
+    {
+      "id": "direct-consumer",
+      "name": "DTC Storyteller",
+      "slug": "direct-consumer",
+      "description": "Emotional hook layout focusing on problem-solution, customer transformation testimonials, and FAQ accordion.",
+      "category": "Health, Beauty & DTC",
+      "defaultTheme": "#10b981",
+      "badge": "Storyteller",
+      "featuresList": [
+        "Problem vs Solution Split",
+        "Verified Review Badges",
+        "FAQ Dropdown Accordion",
+        "Risk-Free Guarantee"
+      ],
+      "isActive": true,
+      "isDefault": false,
+      "layoutStyle": "storyteller"
+    },
+    {
+      "id": "app-apk-showcase",
+      "name": "App & APK Download Pro",
+      "slug": "app-apk-showcase",
+      "description": "Built for mobile apps, Android APK releases, and SaaS installers with verified download badges and device highlights.",
+      "category": "Mobile App / APK Launch",
+      "defaultTheme": "#059669",
+      "badge": "App / APK",
+      "layoutStyle": "app_apk",
+      "featuresList": [
+        "Verified APK Safety Seal",
+        "Direct Download CTA",
+        "Version & Compatibility Cards",
+        "User Rating Showcase"
+      ],
+      "isActive": true,
+      "isDefault": false
+    }
+  ],
+  "analyticsEvents": [
+    {
+      "id": "evt-1791301603442-1rqdm",
+      "landingPageSlug": "lumina-pro-anc-headphones",
+      "eventType": "view",
+      "referrer": "https://google.com",
+      "timestamp": "2026-10-06T15:46:43.442Z"
+    },
+    {
+      "id": "evt-1791301815078-vn0wk",
+      "landingPageSlug": "lumina-pro-anc-headphones",
+      "eventType": "view",
+      "referrer": "https://ais-dev-nc2rcg5uc35n4tizzhkevh-82857877478.asia-southeast1.run.app/p/lumina-pro-anc-headphones",
+      "timestamp": "2026-10-06T15:50:15.078Z"
+    },
+    {
+      "id": "evt-1791301818155-8bsoa",
+      "landingPageSlug": "lumina-pro-anc-headphones",
+      "eventType": "cta_click",
+      "referrer": "",
+      "timestamp": "2026-10-06T15:50:18.155Z"
+    },
+    {
+      "id": "evt-1791301855925-kis3j",
+      "landingPageSlug": "lumina-pro-anc-headphones",
+      "eventType": "cta_click",
+      "referrer": "",
+      "timestamp": "2026-10-06T15:50:55.925Z"
+    },
+    {
+      "id": "evt-1795499279134-aq8an",
+      "landingPageSlug": "lumina-pro-anc-headphones",
+      "eventType": "view",
+      "referrer": "",
+      "timestamp": "2026-11-24T05:47:59.134Z"
+    },
+    {
+      "id": "evt-1795501104354-adzjt",
+      "landingPageSlug": "admin-direct-launch-test",
+      "eventType": "view",
+      "referrer": "",
+      "timestamp": "2026-11-24T06:18:24.354Z"
+    },
+    {
+      "id": "evt-1795501457664-yraxz",
+      "landingPageSlug": "png-product-test-1795501457656",
+      "eventType": "view",
+      "referrer": "",
+      "timestamp": "2026-11-24T06:24:17.664Z"
+    }
+  ],
+  "settings": {
+    "siteName": "LaunchCraft",
+    "defaultSiteUrl": "https://ais-dev-nc2rcg5uc35n4tizzhkevh-82857877478.asia-southeast1.run.app",
+    "metaDescription": "High-Converting Product Landing Page Generator with Built-in Analytics & Main Admin Ad Engine",
+    "supportEmail": "support@launchcraft.app",
+    "adDisclosureNotice": "Sponsored Advertisement • Vetted By Main Admin Platform",
+    "edgeOneCdnEnabled": true,
+    "updatedAt": "2026-10-06T15:46:43.439Z"
+  },
+  "aco": {
+    "seoTitleTemplate": "{{productName}} | Official Offer",
+    "defaultKeywords": "deal, official launch, high conversion",
+    "googleVerificationCode": "",
+    "allowSearchIndexing": true,
+    "enableStructuredData": true,
+    "metaPixelId": "",
+    "ga4MeasurementId": "",
+    "tiktokPixelId": "",
+    "autoSocialProofToast": true,
+    "autoStickyMobileCheckout": true,
+    "autoExitIntentOffer": false,
+    "smartAdRotation": true,
+    "updatedAt": "2026-11-24T05:47:59.130Z"
+  }
+}
